@@ -95,13 +95,13 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-black text-white font-sans relative">
+      {views !== null && (
+        <div className="absolute top-6 right-6 text-white text-2xl font-semibold">
+          👁️ Total Views: {views.toLocaleString()}
+        </div>
+      )}
       <header className="text-center py-6">
         <h1 className="text-5xl font-bold font-[Cinzel]">AI METER</h1>
-        {views !== null && (
-          <div className="text-white text-2xl font-semibold mt-2">
-            👁️ Total Views: {views.toLocaleString()}
-          </div>
-        )}
       </header>
 
       <div className="flex flex-col lg:flex-row justify-center items-start gap-8 px-4 lg:px-16">
