@@ -9,6 +9,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { Analytics } from '@vercel/analytics/react'; // ✅ Added Analytics import
 import "./index.css";
 
 ChartJS.register(
@@ -29,8 +30,8 @@ const App = () => {
     fetch("/api/data")
       .then((res) => res.json())
       .then((data) => {
-        setLayoffsData(data.layoffsData);          // ✅ correct key
-        setOpportunitiesData(data.opportunitiesData); // ✅ correct key
+        setLayoffsData(data.layoffsData);
+        setOpportunitiesData(data.opportunitiesData);
       })
       .catch((err) => console.error("Failed to fetch data:", err));
   }, []);
@@ -171,6 +172,8 @@ const App = () => {
           <li>🚀 To suggest improvements or submit data, contact us at: <span className="text-yellow-400">tips@aimeter.ai</span></li>
         </ul>
       </footer>
+
+      <Analytics /> {/* ✅ Added analytics tracking here */}
     </div>
   );
 };
