@@ -38,13 +38,9 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    fetch("https://plausible.io/api/stats/aggregate?site_id=aimeter.fyi&period=all&metrics=pageviews", {
-      headers: {
-        Accept: "application/json",
-      },
-    })
+    fetch("/api/views")
       .then((res) => res.json())
-      .then((data) => setViews(data.results?.pageviews?.value || 0))
+      .then((data) => setViews(data.pageviews || 0))
       .catch((err) => console.error("Failed to fetch views:", err));
   }, []);
 
