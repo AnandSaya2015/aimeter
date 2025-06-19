@@ -1,13 +1,14 @@
 {
+    "version": 2,
     "functions": {
-      "src/api/*.js": {
-        "runtime": "nodejs18.x"
+      "api/data.js": {
+        "runtime": "nodejs20.x"
       }
     },
-    "rewrites": [
+    "routes": [
       {
-        "source": "/api/data",
-        "destination": "/src/api/data.js"
+        "src": "/api/data",
+        "dest": "api/data.js"
       }
     ]
   }
