@@ -29,8 +29,8 @@ const App = () => {
     fetch("/api/data")
       .then((res) => res.json())
       .then((data) => {
-        setLayoffsData(data.layoffs);
-        setOpportunitiesData(data.opportunities);
+        setLayoffsData(data.layoffsData);          // ✅ correct key
+        setOpportunitiesData(data.opportunitiesData); // ✅ correct key
       })
       .catch((err) => console.error("Failed to fetch data:", err));
   }, []);
