@@ -26,7 +26,7 @@ const App = () => {
   const [showGraph, setShowGraph] = useState(false);
 
   useEffect(() => {
-    fetch("/api/data") // Adjust the path if your endpoint is different
+    fetch("/api/data")
       .then((res) => res.json())
       .then((data) => {
         setLayoffsData(data.layoffs);
@@ -161,7 +161,7 @@ const App = () => {
         </div>
       )}
 
-      <footer className="mt-12 px-4 lg:px-32 text-sm text-white pb-20">
+      <footer className="mt-12 px-4 lg:px-32 text-sm text-white pb-16 lg:pb-20">
         <h2 className="text-lg font-semibold mb-2">About This Dashboard</h2>
         <ul className="list-none space-y-1">
           <li>🚀 AI METER was created as a social initiative to promote awareness of AI-driven employment trends.</li>
