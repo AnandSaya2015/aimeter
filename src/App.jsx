@@ -9,7 +9,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { Analytics } from '@vercel/analytics/react'; // ✅ Added Analytics import
+import { Analytics } from '@vercel/analytics/react';
 import "./index.css";
 
 ChartJS.register(
@@ -25,6 +25,7 @@ const App = () => {
   const [layoffsData, setLayoffsData] = useState([]);
   const [opportunitiesData, setOpportunitiesData] = useState([]);
   const [showGraph, setShowGraph] = useState(false);
+  const [views, setViews] = useState(null);
 
   useEffect(() => {
     fetch("/api/data")
@@ -34,6 +35,17 @@ const App = () => {
         setOpportunitiesData(data.opportunitiesData);
       })
       .catch((err) => console.error("Failed to fetch data:", err));
+  }, []);
+
+  useEffect(() => {
+    fetch("https://plausible.io/api/stats/aggregate?site_id=aimeter.fyi&period=all&metrics=pageviews", {
+      headers: {
+        Accept: "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => setViews(data.results?.pageviews?.value || 0))
+      .catch((err) => console.error("Failed to fetch views:", err));
   }, []);
 
   const months = layoffsData.map((entry) => `${entry.month} ${entry.year}`);
@@ -86,9 +98,14 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans">
-      <header className="text-center py-6">
+    <div className="min-h-screen bg-black text-white font-sans relative">
+      <header className="text-center py-6 relative">
         <h1 className="text-5xl font-bold font-[Cinzel]">AI METER</h1>
+        {views !== null && (
+          <div className="absolute top-0 right-4 text-white text-sm mt-2">
+            👁️ Views: {views.toLocaleString()}
+          </div>
+        )}
       </header>
 
       <div className="flex flex-col lg:flex-row justify-center items-start gap-8 px-4 lg:px-16">
@@ -173,7 +190,7 @@ const App = () => {
         </ul>
       </footer>
 
-      <Analytics /> {/* ✅ Added analytics tracking here */}
+      <Analytics />
     </div>
   );
 };
