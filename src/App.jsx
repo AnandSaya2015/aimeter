@@ -40,7 +40,7 @@ const App = () => {
   useEffect(() => {
     fetch("/api/views")
       .then((res) => res.json())
-      .then((data) => setViews(data.views || 0)) // ✅ Fixed key name
+      .then((data) => setViews(data.views || 0))
       .catch((err) => console.error("Failed to fetch views:", err));
   }, []);
 
@@ -95,11 +95,11 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-black text-white font-sans relative">
-      <header className="text-center py-6 relative">
+      <header className="text-center py-6">
         <h1 className="text-5xl font-bold font-[Cinzel]">AI METER</h1>
         {views !== null && (
-          <div className="absolute top-0 right-4 text-white text-sm mt-2">
-            👁️ Views: {views.toLocaleString()}
+          <div className="text-white text-2xl font-semibold mt-2">
+            👁️ Total Views: {views.toLocaleString()}
           </div>
         )}
       </header>
