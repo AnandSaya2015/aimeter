@@ -1,0 +1,13 @@
+{
+    "functions": {
+      "src/api/*.js": {
+        "runtime": "nodejs18.x"
+      }
+    },
+    "rewrites": [
+      {
+        "source": "/api/data",
+        "destination": "/src/api/data.js"
+      }
+    ]
+  }
