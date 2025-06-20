@@ -191,7 +191,7 @@ const App = () => {
             <li>🚀 The dataset is refreshed monthly.</li>
             <li>🚀 The dataset is limited to the United States for now.</li>
             <li>🚀 We rely solely on third-party sources for data collection. As such, there may be instances of missing data due to limited transparency, availability, or other unforeseen circumstances.</li>
-            <li>🚀 To suggest improvements or submit data, contact us at: <span className="text-yellow-400">tips@aimeter.fyi</span></li>
+            <li>🚀 To suggest improvements or submit data, contact us at: <span className="text-yellow-400">aimeter.tips@gmail.com</span></li>
           </ul>
 
           {views !== null && (
