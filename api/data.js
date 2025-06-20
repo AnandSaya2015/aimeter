@@ -12,7 +12,7 @@ export default function handler(req, res) {
     { month: "Apr", year: 2025, number: 170, sector: ["Finance"] },
     { month: "Mar", year: 2025, number: 310, sector: ["Healthcare", "Logistics"] },
     { month: "Feb", year: 2025, number: 200, sector: ["Education"] },
-    { month: "Jan", year: 2025, number: 270, sector: ["Retail", "Transportation"] }
+    { month: "Jan", year: 2025, number: 3300, sector: ["Multi"] }
   ];
 
   res.status(200).json({ layoffsData, opportunitiesData });
