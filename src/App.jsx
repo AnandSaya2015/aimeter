@@ -117,7 +117,7 @@ const App = () => {
         )}
         <header className="text-center py-6">
           <h1 className="text-5xl font-bold font-[Cinzel]">AI METER</h1>
-          <p className="text-2xl mt-2 text-white font-semibold">
+          <p className="text-2xl mt-2 font-semibold" style={{ color: "#80FFEC" }}>
             Tracking AI Driven Layoffs Vs Opportunities
           </p>
         </header>
