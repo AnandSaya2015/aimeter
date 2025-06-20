@@ -111,7 +111,7 @@ const App = () => {
 
       <div className="min-h-screen bg-black text-white font-sans relative">
         {views !== null && (
-          <div className="absolute top-20 right-6 text-white text-sm font-medium">
+          <div className="absolute top-20 right-16 text-white text-sm font-medium">
             👁️ Total Views: {views.toLocaleString()}
           </div>
         )}
