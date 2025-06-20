@@ -13,14 +13,7 @@ import { Helmet } from "react-helmet";
 import { Analytics } from "@vercel/analytics/react";
 import "./index.css";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const App = () => {
   const [layoffsData, setLayoffsData] = useState([]);
@@ -66,42 +59,47 @@ const App = () => {
   const chartOptions = {
     responsive: true,
     plugins: {
-      legend: {
-        labels: {
-          color: "white",
-        },
-      },
+      legend: { labels: { color: "white" } },
       title: {
         display: true,
         text: "Monthly Comparison",
         color: "white",
-        font: {
-          size: 18,
-        },
+        font: { size: 18 },
       },
     },
     scales: {
-      x: {
-        ticks: {
-          color: "white",
-        },
-      },
-      y: {
-        ticks: {
-          color: "white",
-        },
-      },
+      x: { ticks: { color: "white" } },
+      y: { ticks: { color: "white" } },
     },
+  };
+
+  const renderSector = (sector) => {
+    if (Array.isArray(sector)) {
+      return (
+        <div>
+          {sector.map((s, i) => (
+            <div key={i}>{s}</div>
+          ))}
+        </div>
+      );
+    }
+    return sector;
   };
 
   return (
     <>
       <Helmet>
         <title>AI METER – Tracking AI-Driven Layoffs and Opportunities</title>
-        <meta name="description" content="AI METER tracks monthly data on AI-driven layoffs and opportunities to promote transparency and awareness in the workforce." />
+        <meta
+          name="description"
+          content="AI METER tracks monthly data on AI-driven layoffs and opportunities to promote transparency and awareness in the workforce."
+        />
         <meta name="robots" content="index,follow" />
         <meta property="og:title" content="AI METER – Tracking AI-Driven Layoffs and Opportunities" />
-        <meta property="og:description" content="Explore monthly data on AI-driven layoffs and opportunities across sectors. Stay informed about AI's impact on the workforce." />
+        <meta
+          property="og:description"
+          content="Explore monthly data on AI-driven layoffs and opportunities across sectors. Stay informed about AI's impact on the workforce."
+        />
         <meta property="og:image" content="https://aimeter.fyi/og-image.png" />
         <meta property="og:url" content="https://aimeter.fyi" />
         <meta property="og:type" content="website" />
@@ -123,9 +121,7 @@ const App = () => {
 
         <div className="flex flex-col lg:flex-row justify-center items-start gap-8 px-4 lg:px-16">
           <div className="w-full lg:w-1/2">
-            <h2 className="text-center text-white text-2xl font-semibold mb-4">
-              AI Driven Layoffs
-            </h2>
+            <h2 className="text-center text-white text-2xl font-semibold mb-4">AI Driven Layoffs</h2>
             <table className="w-full table-auto border-collapse border border-yellow-400">
               <thead>
                 <tr className="bg-yellow-400 text-black">
@@ -141,7 +137,7 @@ const App = () => {
                     <td className="border border-yellow-400 px-4 py-2">{entry.month}</td>
                     <td className="border border-yellow-400 px-4 py-2">{entry.year}</td>
                     <td className="border border-yellow-400 px-4 py-2">{entry.number}</td>
-                    <td className="border border-yellow-400 px-4 py-2">{entry.sector}</td>
+                    <td className="border border-yellow-400 px-4 py-2">{renderSector(entry.sector)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -149,9 +145,7 @@ const App = () => {
           </div>
 
           <div className="w-full lg:w-1/2">
-            <h2 className="text-center text-white text-2xl font-semibold mb-4">
-              AI Driven Opportunities
-            </h2>
+            <h2 className="text-center text-white text-2xl font-semibold mb-4">AI Driven Opportunities</h2>
             <table className="w-full table-auto border-collapse border border-yellow-400">
               <thead>
                 <tr className="bg-yellow-400 text-black">
@@ -167,7 +161,7 @@ const App = () => {
                     <td className="border border-yellow-400 px-4 py-2">{entry.month}</td>
                     <td className="border border-yellow-400 px-4 py-2">{entry.year}</td>
                     <td className="border border-yellow-400 px-4 py-2">{entry.number}</td>
-                    <td className="border border-yellow-400 px-4 py-2">{entry.sector}</td>
+                    <td className="border border-yellow-400 px-4 py-2">{renderSector(entry.sector)}</td>
                   </tr>
                 ))}
               </tbody>
