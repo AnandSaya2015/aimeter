@@ -1,10 +1,10 @@
 export default function handler(req, res) {
   const layoffsData = [
-    { month: "May", year: 2025, number: 200, sector: ["Tech", "Retail"] },
-    { month: "Apr", year: 2025, number: 150, sector: ["Finance"] },
-    { month: "Mar", year: 2025, number: 300, sector: ["Healthcare", "Education"] },
-    { month: "Feb", year: 2025, number: 180, sector: ["Education"] },
-    { month: "Jan", year: 2025, number: 250, sector: ["Retail", "Manufacturing"] }
+    { month: "May", year: 2025, number: 10397, sector: ["Tech"] },
+    { month: "Apr", year: 2025, number: 24500, sector: ["Tech"] },
+    { month: "Mar", year: 2025, number: 8834, sector: ["Tech"] },
+    { month: "Feb", year: 2025, number: 16234, sector: ["Tech"] },
+    { month: "Jan", year: 2025, number: 2403, sector: ["Tech"] }
   ];
 
   const opportunitiesData = [
