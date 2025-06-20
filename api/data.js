@@ -8,11 +8,11 @@ export default function handler(req, res) {
   ];
 
   const opportunitiesData = [
-    { month: "May", year: 2025, number: 220, sector: ["Tech", "Energy"] },
-    { month: "Apr", year: 2025, number: 170, sector: ["Finance"] },
-    { month: "Mar", year: 2025, number: 310, sector: ["Healthcare", "Logistics"] },
-    { month: "Feb", year: 2025, number: 200, sector: ["Education"] },
-    { month: "Jan", year: 2025, number: 3300, sector: ["Multi"] }
+    { month: "May", year: 2025, number: 20000, sector: ["Multi"] },
+    { month: "Apr", year: 2025, number: 18500, sector: ["Multi"] },
+    { month: "Mar", year: 2025, number: 17000, sector: ["Multi"] },
+    { month: "Feb", year: 2025, number: 16084, sector: ["Multi"] },
+    { month: "Jan", year: 2025, number: 17000, sector: ["Multi"] }
   ];
 
   res.status(200).json({ layoffsData, opportunitiesData });
