@@ -110,14 +110,6 @@ const App = () => {
       </Helmet>
 
       <div className="min-h-screen bg-black text-white font-sans relative">
-        {views !== null && (
-          <div
-            className="absolute top-20 right-16 text-sm font-medium"
-            style={{ color: "#B4E33D", minWidth: "170px", textAlign: "right" }}
-          >
-            👁️ Total PageViews: {views.toLocaleString()}
-          </div>
-        )}
         <header className="text-center py-6">
           <h1 className="text-5xl font-bold font-[Cinzel]">AI METER</h1>
           <p className="text-2xl mt-2 font-semibold" style={{ color: "#57B8FF" }}>
@@ -192,7 +184,7 @@ const App = () => {
           </div>
         )}
 
-        <footer className="mt-12 px-4 lg:px-32 text-sm text-white pb-16 lg:pb-20">
+        <footer className="mt-12 px-4 lg:px-32 text-sm text-white pb-8">
           <h2 className="text-lg font-semibold mb-2">About This Dashboard</h2>
           <ul className="list-none space-y-1">
             <li>🚀 AI METER was created as a social initiative to promote awareness of AI-driven employment trends.</li>
@@ -201,6 +193,12 @@ const App = () => {
             <li>🚀 We rely solely on third-party sources for data collection. As such, there may be instances of missing data due to limited transparency, availability, or other unforeseen circumstances.</li>
             <li>🚀 To suggest improvements or submit data, contact us at: <span className="text-yellow-400">tips@aimeter.fyi</span></li>
           </ul>
+
+          {views !== null && (
+            <div className="mt-10 text-center text-base font-semibold" style={{ color: "#F02D3A", fontSize: "1.2rem" }}>
+              👁️ Total PageViews: {views.toLocaleString()}
+            </div>
+          )}
         </footer>
 
         <Analytics />
