@@ -111,8 +111,11 @@ const App = () => {
 
       <div className="min-h-screen bg-black text-white font-sans relative">
         {views !== null && (
-          <div className="absolute top-20 right-16 text-white text-sm font-medium">
-            👁️ Total Views: {views.toLocaleString()}
+          <div
+            className="absolute top-20 right-16 text-sm font-medium"
+            style={{ color: "#B4E33D", minWidth: "170px", textAlign: "right" }}
+          >
+            👁️ Total PageViews: {views.toLocaleString()}
           </div>
         )}
         <header className="text-center py-6">
