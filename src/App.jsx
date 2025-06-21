@@ -62,14 +62,22 @@ const App = () => {
     plugins: {
       legend: {
         position: "bottom",
-        labels: { color: "white" },
+        labels: {
+          color: "white",
+          font: {
+            size: 10,
+          },
+        },
       },
       title: {
         display: true,
         text: "Monthly Comparison",
         color: "white",
-        font: { size: 18 },
-        align: "start",
+        font: {
+          size: 18,
+          weight: "bold",
+        },
+        align: "center",
         padding: { bottom: 20 },
       },
     },
