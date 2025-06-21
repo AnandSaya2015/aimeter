@@ -64,20 +64,17 @@ const App = () => {
         position: "bottom",
         labels: {
           color: "white",
-          font: {
-            size: 10,
-          },
+          boxWidth: 10, // Reduced from default 40 to 10
+          boxHeight: 10, // Optional for better scaling
+          padding: 15,
         },
       },
       title: {
         display: true,
         text: "Monthly Comparison",
         color: "white",
-        font: {
-          size: 18,
-          weight: "bold",
-        },
-        align: "center",
+        font: { size: 18 },
+        align: "center", // Center align title
         padding: { bottom: 20 },
       },
     },
