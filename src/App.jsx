@@ -60,12 +60,17 @@ const App = () => {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
-      legend: { labels: { color: "white" } },
+      legend: {
+        position: "bottom",
+        labels: { color: "white" },
+      },
       title: {
         display: true,
         text: "Monthly Comparison",
         color: "white",
         font: { size: 18 },
+        align: "start",
+        padding: { bottom: 20 },
       },
     },
     scales: {
@@ -173,7 +178,7 @@ const App = () => {
 
         {showGraph && (
           <div className="mt-10 px-2 sm:px-4 lg:px-32">
-            <div className="bg-gray-900 p-4 sm:p-6 rounded-lg shadow-lg h-[300px] sm:h-[400px] md:h-[500px]">
+            <div className="bg-gray-900 p-6 sm:p-8 rounded-lg shadow-lg h-[400px] sm:h-[500px] md:h-[600px]">
               <Bar data={chartData} options={chartOptions} />
             </div>
           </div>
