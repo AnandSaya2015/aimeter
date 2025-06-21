@@ -58,6 +58,7 @@ const App = () => {
 
   const chartOptions = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: { labels: { color: "white" } },
       title: {
@@ -90,16 +91,10 @@ const App = () => {
     <>
       <Helmet>
         <title>AI METER – Tracking AI-Driven Layoffs and Opportunities</title>
-        <meta
-          name="description"
-          content="AI METER tracks monthly data on AI-driven layoffs and opportunities to promote transparency and awareness in the workforce."
-        />
+        <meta name="description" content="AI METER tracks monthly data on AI-driven layoffs and opportunities to promote transparency and awareness in the workforce." />
         <meta name="robots" content="index,follow" />
         <meta property="og:title" content="AI METER – Tracking AI-Driven Layoffs and Opportunities" />
-        <meta
-          property="og:description"
-          content="Explore monthly data on AI-driven layoffs and opportunities across sectors. Stay informed about AI's impact on the workforce."
-        />
+        <meta property="og:description" content="Explore monthly data on AI-driven layoffs and opportunities across sectors. Stay informed about AI's impact on the workforce." />
         <meta property="og:image" content="https://aimeter.fyi/og-image.png" />
         <meta property="og:url" content="https://aimeter.fyi" />
         <meta property="og:type" content="website" />
@@ -117,49 +112,49 @@ const App = () => {
           </p>
         </header>
 
-        <div className="flex flex-col lg:flex-row justify-center items-start gap-8 px-4 lg:px-16">
-          <div className="w-full lg:w-1/2">
+        <div className="flex flex-col lg:flex-row justify-center items-start gap-8 px-2 sm:px-4 lg:px-16">
+          <div className="w-full lg:w-1/2 overflow-x-auto">
             <h2 className="text-center text-white text-2xl font-semibold mb-4">AI Driven Layoffs</h2>
-            <table className="w-full table-auto border-collapse border border-yellow-400">
+            <table className="w-full table-auto border-collapse border border-yellow-400 text-sm sm:text-base">
               <thead>
                 <tr className="bg-yellow-400 text-black">
-                  <th className="border border-yellow-400 px-4 py-2">Month</th>
-                  <th className="border border-yellow-400 px-4 py-2">Year</th>
-                  <th className="border border-yellow-400 px-4 py-2">Number</th>
-                  <th className="border border-yellow-400 px-4 py-2">Sector</th>
+                  <th className="border border-yellow-400 px-2 py-2">Month</th>
+                  <th className="border border-yellow-400 px-2 py-2">Year</th>
+                  <th className="border border-yellow-400 px-2 py-2">Number</th>
+                  <th className="border border-yellow-400 px-2 py-2">Sector</th>
                 </tr>
               </thead>
               <tbody>
                 {layoffsData.map((entry, index) => (
                   <tr key={index}>
-                    <td className="border border-yellow-400 px-4 py-2">{entry.month}</td>
-                    <td className="border border-yellow-400 px-4 py-2">{entry.year}</td>
-                    <td className="border border-yellow-400 px-4 py-2">{entry.number}</td>
-                    <td className="border border-yellow-400 px-4 py-2">{renderSector(entry.sector)}</td>
+                    <td className="border border-yellow-400 px-2 py-2">{entry.month}</td>
+                    <td className="border border-yellow-400 px-2 py-2">{entry.year}</td>
+                    <td className="border border-yellow-400 px-2 py-2">{entry.number}</td>
+                    <td className="border border-yellow-400 px-2 py-2">{renderSector(entry.sector)}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
 
-          <div className="w-full lg:w-1/2">
+          <div className="w-full lg:w-1/2 overflow-x-auto">
             <h2 className="text-center text-white text-2xl font-semibold mb-4">AI Driven Opportunities</h2>
-            <table className="w-full table-auto border-collapse border border-yellow-400">
+            <table className="w-full table-auto border-collapse border border-yellow-400 text-sm sm:text-base">
               <thead>
                 <tr className="bg-yellow-400 text-black">
-                  <th className="border border-yellow-400 px-4 py-2">Month</th>
-                  <th className="border border-yellow-400 px-4 py-2">Year</th>
-                  <th className="border border-yellow-400 px-4 py-2">Number</th>
-                  <th className="border border-yellow-400 px-4 py-2">Sector</th>
+                  <th className="border border-yellow-400 px-2 py-2">Month</th>
+                  <th className="border border-yellow-400 px-2 py-2">Year</th>
+                  <th className="border border-yellow-400 px-2 py-2">Number</th>
+                  <th className="border border-yellow-400 px-2 py-2">Sector</th>
                 </tr>
               </thead>
               <tbody>
                 {opportunitiesData.map((entry, index) => (
                   <tr key={index}>
-                    <td className="border border-yellow-400 px-4 py-2">{entry.month}</td>
-                    <td className="border border-yellow-400 px-4 py-2">{entry.year}</td>
-                    <td className="border border-yellow-400 px-4 py-2">{entry.number}</td>
-                    <td className="border border-yellow-400 px-4 py-2">{renderSector(entry.sector)}</td>
+                    <td className="border border-yellow-400 px-2 py-2">{entry.month}</td>
+                    <td className="border border-yellow-400 px-2 py-2">{entry.year}</td>
+                    <td className="border border-yellow-400 px-2 py-2">{entry.number}</td>
+                    <td className="border border-yellow-400 px-2 py-2">{renderSector(entry.sector)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -167,7 +162,7 @@ const App = () => {
           </div>
         </div>
 
-        <div className="flex justify-center mt-10">
+        <div className="flex justify-center mt-10 px-4">
           <button
             onClick={() => setShowGraph(!showGraph)}
             className="bg-yellow-400 text-black px-6 py-2 rounded hover:bg-yellow-300 transition"
@@ -177,14 +172,14 @@ const App = () => {
         </div>
 
         {showGraph && (
-          <div className="mt-10 px-4 lg:px-32">
-            <div className="bg-gray-900 p-6 rounded-lg shadow-lg">
+          <div className="mt-10 px-2 sm:px-4 lg:px-32">
+            <div className="bg-gray-900 p-4 sm:p-6 rounded-lg shadow-lg h-[300px] sm:h-[400px] md:h-[500px]">
               <Bar data={chartData} options={chartOptions} />
             </div>
           </div>
         )}
 
-        <footer className="mt-12 px-4 lg:px-32 text-sm text-white pb-8">
+        <footer className="mt-12 px-2 sm:px-4 lg:px-32 text-sm text-white pb-16 lg:pb-20">
           <h2 className="text-lg font-semibold mb-2">About This Dashboard</h2>
           <ul className="list-none space-y-1">
             <li>🚀 AI METER was created as a social initiative to promote awareness of AI-driven employment trends.</li>
